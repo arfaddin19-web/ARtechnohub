@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Local tooling configuration (machine-specific: dev creds, paths)
+.claude/
+
+# Environment files
+.env
+.env*.local
+.env*.production
+.env.production
+
+# Vercel
+.vercel
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
