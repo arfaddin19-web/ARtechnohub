@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   creator: "MPOS",
   publisher: "MPOS",
   robots: "index, follow",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mpos.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://artechnohub.com.np"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mpos.com",
+    url: "https://artechnohub.com.np",
     siteName: "MPOS",
     title: "MPOS — Technology for Better Business",
     description: "Complete business management software for restaurants, hotels, spas, banquets and HR operations.",
@@ -39,6 +39,9 @@ export default function RootLayout({children}:{children:React.ReactNode}){
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#c99635" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/icon-64.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://images.unsplash.com" />
@@ -48,8 +51,8 @@ export default function RootLayout({children}:{children:React.ReactNode}){
             "@type": "Organization",
             name: "MPOS",
             description: "Business management software for restaurants, hotels, spas, banquets and HR",
-            url: "https://mpos.com",
-            logo: "https://mpos.com/logo.png",
+            url: "https://artechnohub.com.np",
+            logo: "https://artechnohub.com.np/logo.png",
             sameAs: [],
             contactPoint: {
               "@type": "ContactPoint",

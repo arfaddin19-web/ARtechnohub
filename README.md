@@ -8,15 +8,23 @@ A Next.js 15 business management software website for restaurants, hotels, spas,
 # Install dependencies
 npm install
 
-# Development
+# Development (http://localhost:3010)
 npm run dev
 
-# Production build
+# Production build -> static files in out/
 npm run build
-npm start
+
+# Preview the production build (no server; serve the out/ folder)
+npx serve out
 ```
 
-Open [http://localhost:3010](http://localhost:3010)
+This project uses `output: 'export'`, so `npm start` is **not** available — see
+[DEPLOYMENT.md](DEPLOYMENT.md).
+
+## Deployment
+
+Hosted on **GitHub Pages** at [https://artechnohub.com.np](https://artechnohub.com.np)
+via `.github/workflows/deploy.yml`. Push to `main` and it deploys automatically.
 
 ## Production Deployment
 

@@ -1,121 +1,113 @@
 # MPOS Website — Deployment & Environment Setup
 
+Live site: **https://artechnohub.com.np** (GitHub Pages, custom domain via `CNAME`).
+
+## How this project is hosted
+
+`next.config.js` sets `output: 'export'`, so `npm run build` produces a folder of
+plain static files in `out/` instead of a Node server. That is what GitHub Pages
+serves. Consequences:
+
+- **`npm start` does not work** (there is no server to start). To preview locally,
+  serve the `out/` folder with any static file server, e.g.
+  `npx serve out` or `python -m http.server -d out 8080`.
+- **No server-side features**: no API routes (`app/api/*`), no server actions, no
+  SSR, no ISR/revalidation. Everything is pre-rendered at build time.
+- **`headers()` in `next.config.js` is ignored** under static export (Next.js
+  warns about this at build time). GitHub Pages does not support custom response
+  headers either, so those security headers are **not** applied in production.
+  If you need them, put the site behind Cloudflare or move to Vercel.
+
+## Deployment: GitHub Pages (in use)
+
+`.github/workflows/deploy.yml` builds and publishes on every push to `main`:
+
+1. `npm ci`
+2. `npm run build` (with `NEXT_PUBLIC_SITE_URL=https://artechnohub.com.np`)
+3. writes `out/.nojekyll` and copies `CNAME` into `out/`
+4. `actions/upload-pages-artifact` + `actions/deploy-pages`
+
+`out/.nojekyll` is required: without it GitHub Pages runs the artifact through
+Jekyll, which silently discards any directory starting with `_` — including
+Next.js's `_next/` assets, producing an unstyled page.
+
+To change anything on the site: edit locally, run `npm run build` to verify, then
+`git push`. The workflow publishes automatically (1-3 minutes).
+
+**One-time repo setting:** GitHub → repo → **Settings → Pages → Build and
+deployment → Source = "GitHub Actions"**. If the workflow fails to deploy with a
+permissions error, the repo may need Settings → Actions → General → Workflow
+permissions set to "Read and write permissions".
+
 ## Environment Variables
 
-Create a `.env.local` file for development and `.env.production` for production:
+Only used at build time (there is no runtime server). Set them in the workflow
+or in `.env.local` for local builds:
 
 ```env
-# Application URL
-NEXT_PUBLIC_SITE_URL=https://mpos.com
+# Canonical site URL, used for Open Graph / metadata / sitemap
+NEXT_PUBLIC_SITE_URL=https://artechnohub.com.np
 
-# Contact form backend (when connected)
-NEXT_PUBLIC_API_URL=https://api.mpos.com
-
-# Optional: Analytics
+# Optional: Google Analytics
 NEXT_PUBLIC_GA_ID=G_XXXXXXXXXX
 
-# Optional: Form submission service
-NEXT_PUBLIC_FORM_SERVICE=your-service-here
+# Optional: contact form service
+NEXT_PUBLIC_FORM_SERVICE=formspree
 ```
 
-## Deployment Platforms
-
-### Vercel (Recommended)
-1. Push code to GitHub
-2. Connect repository at vercel.com
-3. Set environment variables in Project Settings
-4. Deploy — automatic on every push to main
-
-```bash
-# Local preview of production build
-npm run build
-npm start
-```
-
-### Self-Hosted (Node.js)
-```bash
-# Build
-npm run build
-
-# Start on port 3010
-npm start
-
-# Or use PM2 for process management
-pm2 start npm --name "mpos" -- start
-```
-
-### Docker
-```dockerfile
-FROM node:20-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY .next ./next
-COPY public ./public
-EXPOSE 3010
-CMD ["npm", "start"]
-```
+`public/robots.txt` and `public/sitemap.xml` are **static files with the domain
+hardcoded** — change them by hand if the domain ever changes.
 
 ## Pre-Deployment Checklist
 
-- [ ] Test production build locally: `npm run build && npm start`
-- [ ] Update `NEXT_PUBLIC_SITE_URL` in environment
+- [x] `npm run build` completes and exports all 12 routes
+- [x] Domain set to `artechnohub.com.np` in sitemap, robots, Open Graph, JSON-LD
+- [x] Favicon + `logo.png` present in `public/` (JSON-LD `logo` 404'd before)
+- [x] Pages deploy workflow in place
 - [ ] Replace Unsplash image URLs with your own branded photography
-- [ ] Update contact email in footer: `hello@mpos.com`
-- [ ] Update phone number: `+977 000 000 0000`
-- [ ] Connect contact form to backend service
-- [ ] Set up SSL/TLS certificate (auto on Vercel, manual for self-hosted)
-- [ ] Configure domain DNS records
-- [ ] Test all routes and links on production domain
-- [ ] Set up monitoring and error tracking
-- [ ] Configure backup and disaster recovery
+- [ ] Update contact email in footer (`app/page.tsx`) and JSON-LD phone
+- [ ] Connect contact form to a form-to-email service
+- [ ] Test all routes and links on the production domain
+- [ ] Submit sitemap to Google Search Console
 
 ## Post-Deployment
 
-1. Verify sitemap.xml is accessible: `https://mpos.com/sitemap.xml`
-2. Verify robots.txt is accessible: `https://mpos.com/robots.txt`
-3. Submit sitemap to Google Search Console
-4. Monitor Core Web Vitals and performance
-5. Set up uptime monitoring
+1. Verify `https://artechnohub.com.np/sitemap.xml` loads
+2. Verify `https://artechnohub.com.np/robots.txt` loads
+3. Verify `https://artechnohub.com.np/logo.png` loads (referenced by JSON-LD)
+4. Spot-check every route: `/`, `/products`, `/products/{masterpos,hotel,spa,banquet,hr-payroll}`, `/pricing`, `/contact`
+5. Submit the sitemap in Google Search Console
 
 ## Contact Form Integration
 
-The contact form currently submits client-side. To complete the flow:
+The contact form currently only toggles React state — **submissions are
+discarded**. Under static export you cannot add an `app/api` route, so the
+options are external services:
 
-1. **Option A: Formspree** (No backend needed)
-   - Create form at formspree.io
-   - Update form `action` in [app/contact/page.tsx](app/contact/page.tsx)
+1. **Formspree (recommended, no backend)** — create a form at formspree.io, set
+   the destination email, copy the form ID, and point the `<form action>` in
+   [app/contact/page.tsx](app/contact/page.tsx) at
+   `https://formspree.io/f/<FORM_ID>` with `method="POST"`. Submissions then
+   email you and are viewable in their dashboard. A plain HTML form works with
+   JavaScript disabled; keep the existing client-side success message by
+   submitting via `fetch` with `Accept: application/json`.
+2. **Web3Forms / Basin / similar** — same pattern, different endpoint.
+3. **Mailto link** — builds an email in the visitor's mail client. No setup, but
+   completion rates are much lower.
 
-2. **Option B: Custom Backend**
-   - Create API route in `app/api/contact/route.ts`
-   - Handle email delivery and storage
-   - Return success/error response
-
-3. **Option C: Third-party service** (SendGrid, Mailgun, etc.)
-   - Add API keys to environment variables
-   - Create server action in contact page
+Note the free tiers cap submissions per month and require you to confirm the
+form/domain with Formspree before it will deliver to a real inbox.
 
 ## Performance Tips
 
-- Images are optimized from Unsplash
+- All 12 routes are pre-rendered static HTML at build time
+- `trailingSlash: true` emits `products/hotel/index.html`, which serves cleanly
+  on GitHub Pages
+- JavaScript is tree-shaken and minified (~106 kB First Load JS)
 - CSS is minified in production
-- JavaScript is tree-shaken and minified
-- Static pages are pre-rendered
-- Compression is enabled by default
-
-## Security
-
-Production build includes:
-- X-Frame-Options: SAMEORIGIN
-- X-Content-Type-Options: nosniff
-- X-XSS-Protection: 1; mode=block
-- Referrer-Policy: strict-origin-when-cross-origin
-- No source maps in production
-- Powered-by header removed
 
 ## Support
 
-For deployment questions or issues:
-- Next.js Docs: https://nextjs.org/docs
-- Vercel Docs: https://vercel.com/docs
-- Check build logs for errors
+- Next.js static export: https://nextjs.org/docs/app/guides/static-exports
+- GitHub Pages Actions: https://docs.github.com/en/pages
+- Check the workflow run log in the repo's **Actions** tab for build errors
