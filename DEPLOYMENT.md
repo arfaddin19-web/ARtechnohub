@@ -64,11 +64,25 @@ hardcoded** — change them by hand if the domain ever changes.
 - [x] Domain set to `artechnohub.com.np` in sitemap, robots, Open Graph, JSON-LD
 - [x] Favicon + `logo.png` present in `public/` (JSON-LD `logo` 404'd before)
 - [x] Pages deploy workflow in place
-- [ ] Replace Unsplash image URLs with your own branded photography
-- [ ] Update contact email in footer (`app/page.tsx`) and JSON-LD phone
-- [ ] Connect contact form to a form-to-email service
+- [x] Replace Unsplash image URLs with your own branded photography → *still placeholder stock photos*
+- [x] Update contact email in footer (`app/page.tsx`) and JSON-LD phone
+- [x] Connect contact form to a form-to-email service
 - [ ] Test all routes and links on the production domain
 - [ ] Submit sitemap to Google Search Console
+
+## Contact details
+
+Single source of truth for the published contact info:
+
+- Email `artechnohub23@gmail.com` — footer (`app/page.tsx`), contact page fallback link, JSON-LD `contactPoint` (`app/layout.tsx`)
+- Phone/WhatsApp `+977 9869093168` — `tel:+9779869093168` in the footer and contact page
+- Demo form → Formspree form `mnpnrgrl` (`app/contact/page.tsx`, `FORMSPREE` constant)
+
+The form posts with `fetch` + `Accept: application/json` so the inline
+"Request received" panel works, but it also carries a real `action`/`method`,
+so **it still submits if JavaScript is blocked**. Every input has a `name`
+attribute — Formspree silently drops fields without one, which is why a form
+can appear to work while delivering an empty email.
 
 ## Post-Deployment
 
@@ -78,25 +92,20 @@ hardcoded** — change them by hand if the domain ever changes.
 4. Spot-check every route: `/`, `/products`, `/products/{masterpos,hotel,spa,banquet,hr-payroll}`, `/pricing`, `/contact`
 5. Submit the sitemap in Google Search Console
 
-## Contact Form Integration
+## Contact Form Integration — DONE (Formspree)
 
-The contact form currently only toggles React state — **submissions are
-discarded**. Under static export you cannot add an `app/api` route, so the
-options are external services:
+The demo form posts to `https://formspree.io/f/mnpnrgrl`. Submissions are
+emailed by Formspree and stored in their dashboard. Under static export you
+cannot add an `app/api` route, so an external service is required — no further
+code changes should be needed to receive leads.
 
-1. **Formspree (recommended, no backend)** — create a form at formspree.io, set
-   the destination email, copy the form ID, and point the `<form action>` in
-   [app/contact/page.tsx](app/contact/page.tsx) at
-   `https://formspree.io/f/<FORM_ID>` with `method="POST"`. Submissions then
-   email you and are viewable in their dashboard. A plain HTML form works with
-   JavaScript disabled; keep the existing client-side success message by
-   submitting via `fetch` with `Accept: application/json`.
-2. **Web3Forms / Basin / similar** — same pattern, different endpoint.
-3. **Mailto link** — builds an email in the visitor's mail client. No setup, but
-   completion rates are much lower.
+To change the destination inbox or add an auto-reply, do it in the Formspree
+dashboard (form `mnpnrgrl`) — not in this repo. Changing the form ID means
+editing the `FORMSPREE` constant in [app/contact/page.tsx](app/contact/page.tsx).
 
-Note the free tiers cap submissions per month and require you to confirm the
-form/domain with Formspree before it will deliver to a real inbox.
+If you ever need to move away from Formspree (Web3Forms, Basin, or a custom
+endpoint), it is the same pattern: point the form `action` at the new URL and
+keep the field `name` attributes identical.
 
 ## Performance Tips
 

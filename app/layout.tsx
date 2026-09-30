@@ -56,8 +56,10 @@ export default function RootLayout({children}:{children:React.ReactNode}){
             sameAs: [],
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+977-000-000-0000",
+              telephone: "+977-9869093168",
+              email: "artechnohub23@gmail.com",
               contactType: "Customer Service",
+              availableLanguage: ["en", "ne"],
             },
           })}
         </script>
