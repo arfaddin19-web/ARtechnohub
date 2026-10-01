@@ -66,11 +66,13 @@ jobs:
   indexnow:
     needs: deploy
     runs-on: ubuntu-latest
-    if: ${{ secrets.INDEXNOW_KEY != '' }}
+    env:
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
     steps:
+      # secrets is not available in a job-level if, so the guard lives here.
       - name: Notify Bing IndexNow
+        if: ${{ env.INDEXNOW_KEY != '' }}
         env:
-          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           SITE_URL: https://artechnohub.com.np
         run: |
           KEY="$INDEXNOW_KEY"
