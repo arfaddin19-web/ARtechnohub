@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 /* Set the founder's name here and it appears on the page and in the schema. */
-const FOUNDER = { name: '', role: 'Founder' };
+const FOUNDER = { name: 'Mohammad Arfad Din', role: 'Founder' };
 
 const orgLd = {
   '@context': 'https://schema.org',
