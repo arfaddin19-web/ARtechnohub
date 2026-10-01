@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import SiteHeader from '../../components/SiteHeader';
+import SiteFooter from '../../components/SiteFooter';
 
 const data: Record<string, any> = {
   masterpos: {
@@ -94,7 +96,7 @@ export function generateStaticParams(){ return Object.keys(data).map(slug=>({slu
 export default async function ProductDetail({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params; const p=data[slug]; if(!p) notFound();
   return <>
-    <header className="nav"><div className="nav-inner"><Link className="brand" href="/"><span className="brand-mark">M</span>MPOS</Link><nav><Link href="/">Home</Link><Link href="/products">Products</Link><Link href="/pricing">Pricing</Link><Link href="/contact">Contact</Link></nav><Link className="gold-btn" href="/contact">Book a Demo →</Link></div></header>
+    <SiteHeader/>
     <main>
       <script type="application/ld+json" suppressHydrationWarning>{JSON.stringify({
         "@context": "https://schema.org",
@@ -104,9 +106,11 @@ export default async function ProductDetail({params}:{params:Promise<{slug:strin
         operatingSystem: "Windows, Android, iOS, web browser",
         description: p.desc,
         url: "https://artechnohub.com.np/products/" + slug,
-        offers: { "@type": "Offer", price: "0", priceCurrency: "NPR", availability: "https://schema.org/InStock", description: "Contact for pricing" },
+        offers: { "@type": "Offer", url: "https://artechnohub.com.np/contact/", availability: "https://schema.org/InStock", description: "Contact for pricing" },
         featureList: p.features.map((f: string[]) => f[1]),
-        provider: { "@type": "Organization", name: "MPOS", url: "https://artechnohub.com.np" },
+        brand: { "@type": "Brand", name: "MPOS" },
+        provider: { "@type": "Organization", name: "AR Technohub", url: "https://artechnohub.com.np" },
+        isPartOf: { "@type": "Organization", name: "AR Technohub", url: "https://artechnohub.com.np" },
       })}</script>
       <section className="detail-hero"><div className="detail-copy"><div className="eyebrow">{p.tag}</div><h1>{p.title}</h1><p className="product-name">{p.name}</p><p>{p.desc}</p><div className="actions"><Link className="gold-btn" href="/contact">Request a Demo →</Link><Link className="outline-btn" href="/products">← All Products</Link></div></div><div className={p.shot?'detail-shot':'detail-image'} style={p.shot?undefined:{backgroundImage:`url(${p.image})`}}>{p.shot?<div className="shot-win"><div className="shot-bar"><i/><i/><i/><span>{p.shortName} &middot; {p.shotCap}</span></div><Image src={`/product/${p.shot}.webp`} alt={`${p.shortName} — ${p.shotCap}`} width={1400} height={875} priority/></div>:<span>MPOS • {p.name}</span>}</div></section>
       <script type="application/ld+json" suppressHydrationWarning>{JSON.stringify({
@@ -123,7 +127,9 @@ export default async function ProductDetail({params}:{params:Promise<{slug:strin
       {p.shots
         ? <section className="gallery"><div className="section-head"><div><div className="eyebrow">REAL SCREENS</div><h2>See {p.shortName}<br/><em>in action.</em></h2></div><Link href="/contact" className="gold-btn">Request a Demo →</Link></div><div className="gallery-grid">{(p.shots as string[][]).map(([src,cap])=><figure key={src}><div className="shot-win"><div className="shot-bar"><i/><i/><i/><span>{p.shortName}</span></div><Image src={`/product/${src}.webp`} alt={`${p.shortName} — ${cap}`} width={1400} height={875} loading="lazy"/></div><figcaption className="shot-cap">{cap}</figcaption></figure>)}</div></section>
         : <section className="feature-section showcase"><div className="showcase-copy"><div className="eyebrow">ONE CONNECTED PLATFORM</div><h2>From the first action to the final report.</h2><p>Every completed transaction becomes part of the same business record. Managers get visibility, staff get simpler screens and owners get reliable information for decisions.</p><Link className="gold-btn" href="/contact">See MPOS in Action →</Link></div><div className="module-list"><b>INCLUDED IN {p.shortName.toUpperCase()}</b><ul>{p.features.map((f:string[],i:number)=><li key={i}>{f[1]}</li>)}</ul></div></section>}
+      <section className="hw-cross"><div><div className="eyebrow">HARDWARE TO RUN IT</div><h2>Need the terminals,<br/><em>printers and rolls too?</em></h2></div><div><p>AR Technohub supplies the hardware as well as the software &mdash; PCs and POS terminals, thermal printers, thermal paper rolls and POS peripherals &mdash; specified and installed together.</p><div className="actions"><Link className="gold-btn" href="/hardware">See Hardware <span>&rarr;</span></Link><Link className="outline-btn" href="/contact">Request a Quote</Link></div></div></section>
       <section className="detail-cta"><div><div className="eyebrow">READY TO GET STARTED?</div><h2>Let's build a better operation.</h2><p>Tell us about your business and we'll show you the workflow.</p></div><Link className="gold-btn" href="/contact">Request a Demo →</Link></section>
     </main>
+    <SiteFooter/>
   </>
 }

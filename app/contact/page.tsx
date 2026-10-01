@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SiteHeader from '../components/SiteHeader';
+import SiteFooter from '../components/SiteFooter';
 import ContactForm from './ContactForm';
 
 const EMAIL = 'artechnohub23@gmail.com';
@@ -72,20 +74,7 @@ export default function Contact() {
       <script type="application/ld+json" suppressHydrationWarning>
         {JSON.stringify(CONTACT_LD)}
       </script>
-      <header className="simple-header">
-        <div className="simple-header-inner">
-          <Link className="brand" href="/">
-            <span className="brand-mark">M</span>MPOS
-          </Link>
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/products">Products</Link>
-            <Link href="/pricing">Pricing</Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
-          <Link href="/" className="back">← Home</Link>
-        </div>
-      </header>
+      <SiteHeader />
       <main>
         <section className="contact-page">
           <div>
@@ -132,6 +121,7 @@ export default function Contact() {
           {JSON.stringify(FAQ_LD)}
         </script>
       </main>
+      <SiteFooter />
     </>
   );
 }

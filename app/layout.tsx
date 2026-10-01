@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   },
   description: "Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one connected platform.",
   applicationName: "MPOS",
-  keywords: ["restaurant management software", "restaurant POS system Nepal", "hotel management software", "spa salon software", "banquet event management software", "HR payroll software", "inventory management software", "billing software", "KOT software"],
-  authors: [{ name: "MPOS", url: "https://artechnohub.com.np" }],
-  creator: "MPOS",
-  publisher: "MPOS",
+  keywords: ["AR Technohub", "business management software Nepal", "restaurant management software", "restaurant POS system Nepal", "hotel management software", "spa salon software", "banquet event management software", "HR payroll software", "inventory management software", "billing software", "KOT software", "thermal printer supplier Nepal", "thermal rolls Nepal"],
+  authors: [{ name: "AR Technohub", url: "https://artechnohub.com.np" }],
+  creator: "AR Technohub",
+  publisher: "AR Technohub",
   category: "business",
   alternates: { canonical: "/" },
   robots: {
@@ -64,15 +64,24 @@ export default function RootLayout({children}:{children:React.ReactNode}){
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "MPOS",
-            alternateName: "MPOS Business Management Software",
-            description: "Business management software for restaurants, hotels, spas, salons, banquets and HR",
+            name: "AR Technohub",
+            alternateName: ["AR Technohub", "AR Technohub Nepal"],
+            legalName: "AR Technohub",
+            description: "AR Technohub develops the MPOS business management software suite and supplies business hardware including PCs, thermal printers, thermal rolls and POS peripherals.",
+            slogan: "Software and hardware for better business.",
             url: "https://artechnohub.com.np",
             logo: "https://artechnohub.com.np/logo.png",
             image: "https://artechnohub.com.np/og-image.png",
             sameAs: [],
-            areaServed: "Worldwide",
-            knowsAbout: ["Restaurant management", "Point of sale", "Hotel management", "Spa management", "Banquet management", "HR payroll", "Inventory management"],
+            areaServed: ["Nepal", "Worldwide"],
+            knowsAbout: ["Business management software", "Restaurant management", "Point of sale", "Hotel management", "Spa management", "Banquet management", "HR payroll", "Inventory management", "Business computers", "Thermal printers", "Thermal paper rolls", "POS peripherals"],
+            makesOffer: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "MPOS business management software" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "PCs and POS terminals" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Thermal receipt printers" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Thermal paper rolls" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "POS peripherals" } },
+            ],
             contactPoint: {
               "@type": "ContactPoint",
               telephone: "+977-9869093168",
@@ -80,6 +89,18 @@ export default function RootLayout({children}:{children:React.ReactNode}){
               contactType: "Customer Service",
               availableLanguage: ["en", "ne"],
             },
+          })}
+        </script>
+        <script type="application/ld+json" suppressHydrationWarning>
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Brand",
+            name: "MPOS",
+            alternateName: "MPOS Business Management Software",
+            description: "The business management software brand of AR Technohub.",
+            url: "https://artechnohub.com.np",
+            logo: "https://artechnohub.com.np/logo.png",
+            parentOrganization: { "@type": "Organization", name: "AR Technohub", url: "https://artechnohub.com.np" },
           })}
         </script>
       </head>
