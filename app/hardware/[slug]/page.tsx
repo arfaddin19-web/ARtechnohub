@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '../../components/SiteHeader';
 import SiteFooter from '../../components/SiteFooter';
@@ -71,14 +72,25 @@ export default async function HardwareCategory({ params }: Props) {
       <script type="application/ld+json" suppressHydrationWarning>{JSON.stringify(ld)}</script>
       <SiteHeader />
       <main>
-        <section className="product-hero">
-          <div className="eyebrow">{h.kicker} — AR TECHNOHUB</div>
-          <h1>{h.heading[0]}<br /><em>{h.heading[1]}</em></h1>
-          <p>{h.intro}</p>
-          <div className="actions">
-            <Link className="gold-btn" href="/contact">Request a Quote <span>→</span></Link>
-            <Link className="outline-btn" href="/hardware">← All Hardware</Link>
+<section className="product-hero hw-hero">
+          <div className="hw-hero-copy">
+            <div className="eyebrow">{h.kicker} - AR TECHNOHUB</div>
+            <h1>{h.heading[0]}<br /><em>{h.heading[1]}</em></h1>
+            <p>{h.intro}</p>
+            <div className="actions">
+              <Link className="gold-btn" href="/contact">Request a Quote <span></span></Link>
+              <Link className="outline-btn" href="/hardware"> All Hardware</Link>
+            </div>
           </div>
+          <figure className="hw-hero-shot">
+            <Image
+              src={h.image}
+              alt={`${h.name} supplied by AR Technohub`}
+              width={1000}
+              height={1000}
+              priority
+            />
+          </figure>
         </section>
 
         <section className="feature-section hw-intro">
@@ -130,6 +142,27 @@ export default async function HardwareCategory({ params }: Props) {
             </ul>
           </div>
         </section>
+
+        {h.gallery && h.gallery.length > 0 && (
+          <section className="section hw-gallery">
+            <div className="section-head">
+              <div>
+                <div className="eyebrow">ON THE COUNTER</div>
+                <h2>
+                  What your staff<br />
+                  <em>actually touch.</em>
+                </h2>
+              </div>
+            </div>
+            <div className="hw-gallery-grid">
+              {h.gallery.map((g) => (
+                <figure key={g.src}>
+                  <Image src={g.src} alt={g.alt} width={1000} height={1000} loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="section hw-related">
           <div className="section-head">
