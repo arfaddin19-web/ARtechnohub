@@ -51,7 +51,9 @@ const CONTACT_LD = {
   url: 'https://artechnohub.com.np/contact/',
   mainEntity: {
     '@type': 'Organization',
-    name: 'MPOS',
+    name: 'AR Technohub',
+    alternateName: 'MPOS',
+    legalName: 'AR Technohub',
     url: 'https://artechnohub.com.np',
     telephone: '+977-9869093168',
     email: EMAIL,
