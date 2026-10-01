@@ -60,3 +60,33 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Ping Bing the moment a deploy lands, instead of waiting for its next
+  # crawl. Skipped silently when INDEXNOW_KEY is not set in repo secrets.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: ${{ secrets.INDEXNOW_KEY != '' }}
+    steps:
+      - name: Notify Bing IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_URL: https://artechnohub.com.np
+        run: |
+          KEY="$INDEXNOW_KEY"
+          # IndexNow fetches keyLocation over HTTP to verify ownership, so the
+          # key file must be served from the site. It is committed under
+          # public/ (an IndexNow key is a public verification token, not a
+          # secret) and deployed by the build job before this runs.
+          KEYLOC="$SITE_URL/$KEY.txt"
+          for f in $(find out -name '*.html' -not -name '404.html' -not -name '500.html'); do
+            URL="$SITE_URL/${f#out/}"
+            URL="${URL%/index.html}/"
+            curl -sS -o /dev/null -w "%{http_code}  $URL\n" -X POST "https://api.indexnow.org/indexnow" \
+              -H "Content-Type: application/json; charset=utf-8" \
+              -H "Api-Key: $KEY" \
+              -H "Location: $URL" \
+              --data "{\"host\":\"artechnohub.com.np\",\"key\":\"$KEY\",\"keyLocation\":\"$KEYLOC\",\"urlList\":[\"$URL\"]}"
+            sleep 0.2
+          done
+          echo "indexnow: 200/202 = accepted, 400 = rejected, 422 = bad key location"
