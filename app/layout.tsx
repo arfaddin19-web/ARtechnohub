@@ -73,6 +73,15 @@ export default function RootLayout({children}:{children:React.ReactNode}){
             logo: "https://artechnohub.com.np/logo.png",
             image: "https://artechnohub.com.np/og-image.png",
             sameAs: [],
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Indramarga-10",
+              addressLocality: "Pokhara",
+              addressRegion: "Gandaki",
+              postalCode: "33700",
+              addressCountry: "NP",
+            },
+            geo: { "@type": "GeoCoordinates", addressCountry: "NP" },
             areaServed: ["Nepal", "Worldwide"],
             knowsAbout: ["Business management software", "Restaurant management", "Point of sale", "Hotel management", "Spa management", "Banquet management", "HR payroll", "Inventory management", "Business computers", "Thermal printers", "Thermal paper rolls", "POS peripherals"],
             makesOffer: [

@@ -30,6 +30,8 @@ figure{margin:0}.shot-win{background:#fff;border:1px solid #ddd4c2;border-radius
 @media(max-width:560px){.brand-text small{font-size:8px;letter-spacing:.08em;margin-top:4px}}
 
 /* About -------------------------------------------------------------------- */
+.foot-address{font-style:normal;color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:6px}
+.contact-page .form-direct .addr address{font-style:normal;color:#777;display:inline-block;margin-top:5px}
 .about-hero{max-width:1100px;margin:auto;padding:100px 5% 80px}
 .about-hero h1{font-size:clamp(40px,5vw,66px)}
 /* .section-head is a space-between flex. With a long paragraph as the second

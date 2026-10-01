@@ -46,6 +46,9 @@ export default function SiteFooter() {
         </div>
         <div>
           <b>AR Technohub</b>
+          <address className="foot-address">
+            Indramarga-10, Pokhara 33700
+          </address>
           <Link href="/about/">About us</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/contact">Contact</Link>

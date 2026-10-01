@@ -55,6 +55,14 @@ const CONTACT_LD = {
     url: 'https://artechnohub.com.np',
     telephone: '+977-9869093168',
     email: EMAIL,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Indramarga-10',
+      addressLocality: 'Pokhara',
+      postalCode: '33700',
+      addressRegion: 'Gandaki',
+      addressCountry: 'NP',
+    },
   },
 };
 
@@ -97,6 +105,10 @@ export default function Contact() {
               Prefer to write directly? <a href={'mailto:' + EMAIL}>{EMAIL}</a>
               <br />
               Call or WhatsApp <a href="tel:+9779869093168">+977 9869093168</a>
+              <br />
+              <span className="addr">
+                <address>Indramarga-10, Pokhara 33700, Nepal</address>
+              </span>
             </p>
           </div>
           <ContactForm />
