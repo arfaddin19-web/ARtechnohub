@@ -9,8 +9,6 @@ export type HardwareCategory = {
   short: string;
   intro: string;
   image: string;
-  /** Extra photographs shown as a strip on the detail page. */
-  gallery?: { src: string; alt: string }[];
   highlights: { b: string; s: string }[];
   specs: string[];
   useCases: [string, string][];
@@ -27,11 +25,8 @@ export const HARDWARE: HardwareCategory[] = [
     short: 'Desktops, laptops and POS terminals specified for the work your business actually does.',
     intro:
       'We supply the computers that run MPOS and the rest of your operation. Rather than selling the largest configuration available, we match hardware to your terminals, user count and workload — and we set it up with MPOS already installed and configured.',
-    image: '/hardware/pc.webp',
-    gallery: [
-      { src: '/hardware/pos-terminal.webp', alt: 'MPOS touchscreen POS terminal at a billing counter' },
-      { src: '/hardware/pc-alt.webp', alt: 'Desktop computer supplied for back-office work' },
-    ],
+    image:
+      'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=1600&q=85',
     highlights: [
       { b: 'POS terminals', s: 'Compact units at the billing counter or on the table.' },
       { b: 'Back-office machines', s: 'Desktops for accounts, inventory and reporting.' },
@@ -67,7 +62,8 @@ export const HARDWARE: HardwareCategory[] = [
     short: 'Receipt and kitchen printers that connect directly to MPOS and print without ink.',
     intro:
       'A thermal printer is part of the software, not an accessory to it. MPOS sends KOT tickets, bills and reports straight to the printer, so we supply printers that are tested against the formats MPOS actually produces.',
-    image: '/hardware/thermal-printer.webp',
+    image:
+      'https://images.unsplash.com/photo-1601662088857-6e1e0e5e6d1f?auto=format&fit=crop&w=1600&q=85',
     highlights: [
       { b: 'Receipt printing', s: 'Customer bills at the billing counter.' },
       { b: 'KOT printing', s: 'Kitchen tickets routed from the order screen.' },
@@ -103,7 +99,8 @@ export const HARDWARE: HardwareCategory[] = [
     short: 'Receipt rolls supplied in the width and length your printers need, plus the correct core size.',
     intro:
       'The wrong roll does not just waste paper — it jams, fades print or silently corrupts an image. We supply thermal rolls matched to the printers we install, and we keep them in stock so a re-order does not stop your billing.',
-    image: '/hardware/thermal-rolls.webp',
+    image:
+      'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1600&q=85',
     highlights: [
       { b: 'Width matched', s: 'Sized to the printer, not bought generically.' },
       { b: 'Correct core', s: 'The right core diameter so the roll fits and feeds.' },
@@ -139,7 +136,8 @@ export const HARDWARE: HardwareCategory[] = [
     short: 'Scanners, cash drawers, displays, card readers and the small parts a counter needs.',
     intro:
       'These are the pieces that decide whether billing feels fast or fiddly. We supply them alongside the system so they are compatible with MPOS from the first day, and we configure them as part of the install.',
-    image: '/hardware/peripherals.webp',
+    image:
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=85',
     highlights: [
       { b: 'Barcode scanners', s: 'Fast product entry at the counter and in stock counts.' },
       { b: 'Cash drawers', s: 'Opened from the billing screen or through the printer.' },

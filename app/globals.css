@@ -131,23 +131,3 @@ figure{margin:0}.shot-win{background:#fff;border:1px solid #ddd4c2;border-radius
 .nav-panel-foot{font-size:11px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:18px}
 .nav-panel-foot a{color:var(--gold);font-weight:700}
 @media(max-width:900px){.nav-toggle{display:grid}.nav-panel{display:flex}}
-/* Hardware detail hero: the product photo was previously absent entirely,
-   so each hardware page sold a physical product with no picture of it.
-   `.product-hero` is shared with the hardware listing, products listing and
-   404, so the two-column treatment is scoped behind `.hw-hero`. */
-.hw-hero{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:100px 5% 78px}
-.hw-hero-copy h1{margin-bottom:20px}
-.hw-hero-shot{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;align-items:center;justify-content:center;min-height:400px;box-shadow:0 24px 60px rgba(20,16,10,.10)}
-.hw-hero-shot img{width:100%;height:auto;max-height:460px;object-fit:contain}
-
-/* Product photography strip (only rendered where a gallery is defined). */
-.hw-gallery{padding-top:0}
-.hw-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
-.hw-gallery-grid figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;align-items:center;justify-content:center}
-.hw-gallery-grid img{width:100%;height:auto;max-height:420px;object-fit:contain}
-
-@media(max-width:1000px){
-  .hw-hero{grid-template-columns:1fr;gap:40px;padding:65px 25px 55px}
-  .hw-hero-shot{min-height:0;padding:20px}
-  .hw-hero-shot img{max-height:360px}
-}
