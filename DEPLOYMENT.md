@@ -39,6 +39,14 @@ deployment → Source = "GitHub Actions"**. If the workflow fails to deploy with
 permissions error, the repo may need Settings → Actions → General → Workflow
 permissions set to "Read and write permissions".
 
+> **Check this setting is actually applied.** On 2026-10-01 Pages was left on
+> "Deploy from a branch" with folder `/root`, which does not exist. The domain
+> silently served the repository README instead of the site: `/` returned 200
+> with the README text, every real route 404'd, and `/sitemap.xml` 404'd — which
+> is what made Google report "Sitemap could not be read". Deploys still showed
+> green in the Actions tab the whole time. If the domain ever serves a README or
+> 404s on real routes, check this setting first.
+
 ## Environment Variables
 
 Only used at build time (there is no runtime server). Set them in the workflow
@@ -67,8 +75,29 @@ hardcoded** — change them by hand if the domain ever changes.
 - [x] Replace Unsplash image URLs with your own branded photography → *still placeholder stock photos*
 - [x] Update contact email in footer (`app/page.tsx`) and JSON-LD phone
 - [x] Connect contact form to a form-to-email service
-- [ ] Test all routes and links on the production domain
-- [ ] Submit sitemap to Google Search Console
+- [x] Test all routes and links on the production domain (all 15 verified 200)
+- [x] Submit sitemap to Google Search Console (15 URLs discovered)
+
+## IndexNow (Bing)
+
+Every successful deploy pings Bing with all 15 URLs so new pages are indexable
+in minutes instead of waiting for the next crawl. It only affects Bing — Google
+still relies on crawling via the sitemap.
+
+It needs two things, and **both** are required:
+
+1. **Repo secret** `INDEXNOW_KEY` — Settings → Secrets and variables → Actions.
+   Without it the job skips silently and nothing is submitted.
+2. **The key file at the site root**, `public/<key>.txt`, containing just the key
+   with no trailing newline. IndexNow verifies ownership by fetching
+   `keyLocation` over HTTP, so this file must exist or Bing returns `422`.
+
+The key is a public verification token, not a credential — the protocol only
+works because the file is readable by Bing. The CI copy still lives in a secret
+so it can be rotated without touching the history.
+
+Submission codes: `200` / `202` accepted, `400` malformed, `422` key file could
+not be fetched, `429` rate limited.
 
 ## Contact details
 
