@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const h = bySlug(slug);
   if (!h) return {};
   const title = `${h.name} — Supplied by AR Technohub | MPOS`;
-  const description = `${h.short} Supplied, installed and tested alongside MPOS by AR Technohub. Request a quote.`;
+  const description = h.seoDescription ?? `${h.short} Supplied, installed and tested alongside MPOS by AR Technohub. Request a quote.`;
   return {
     title,
     description,

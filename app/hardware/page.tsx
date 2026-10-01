@@ -4,9 +4,9 @@ import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 import { HARDWARE } from './data';
 
-const TITLE = 'Hardware — PCs, Thermal Printers & Thermal Rolls | AR Technohub';
+const TITLE = 'Hardware — PCs, Thermal Printers & Rolls | AR Technohub';
 const DESC =
-  'AR Technohub supplies business hardware alongside MPOS software: PCs and POS terminals, thermal receipt and kitchen printers, thermal paper rolls and POS peripherals. Specified, installed and tested.';
+  'AR Technohub supplies business hardware with MPOS: PCs and POS terminals, thermal receipt and kitchen printers, thermal paper rolls and POS peripherals.';
 
 export const metadata: Metadata = {
   title: TITLE,

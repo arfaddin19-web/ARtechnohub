@@ -52,8 +52,8 @@ export default function RootLayout({children}:{children:React.ReactNode}){
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#c99635" />
+        {/* viewport + theme-color come from the `viewport` export above;
+            declaring them here too emitted both tags twice on every page. */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="icon" type="image/png" sizes="64x64" href="/icon-64.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

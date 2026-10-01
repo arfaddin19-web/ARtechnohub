@@ -7,7 +7,7 @@ import ContactForm from './ContactForm';
 const EMAIL = 'artechnohub23@gmail.com';
 const TITLE = 'Contact — Request an MPOS Demo';
 const DESC =
-  'Request a free MPOS demo for your restaurant, hotel, spa, salon, banquet or HR operation. Call or WhatsApp +977 9869093168 or email artechnohub23@gmail.com. We reply within one business day.';
+  'Request a free MPOS demo for your restaurant, hotel, spa, salon, banquet or HR operation. WhatsApp +977 9869093168. We reply within one business day.';
 
 const FAQ = [
   {

@@ -49,12 +49,12 @@ const ogMap: Record<string, string> = {
 const seo: Record<string, Seo> = {
   masterpos: {
     title: 'MPOS Restaurant Management Software',
-    description: 'MPOS is restaurant management software for table orders, KOT kitchen workflow, fast billing, inventory, purchasing, reports and staff. Built for busy restaurants in Nepal and beyond.',
+    description: 'MPOS restaurant management software for table orders, KOT kitchen workflow, fast billing, inventory, reports and staff. Built for busy restaurants in Nepal.',
     keywords: 'restaurant management software, restaurant POS system, restaurant billing software Nepal, KOT software, restaurant inventory management',
   },
   hotel: {
     title: 'MPOS Hotel Management Software',
-    description: 'MPOS hotel management software for reservations, front office, room status, check-in and checkout, guest folios, housekeeping and hotel billing in one connected system.',
+    description: 'MPOS hotel management software for reservations, front office, room status, check-in and checkout, guest folios, housekeeping and billing in one system.',
     keywords: 'hotel management software, hotel PMS, reservation software, front office software, hotel billing software',
   },
   spa: {
@@ -69,7 +69,7 @@ const seo: Record<string, Seo> = {
   },
   'hr-payroll': {
     title: 'MPOS HR & Payroll Software',
-    description: 'MPOS HR and payroll software for employee records, contracts, attendance, shifts, leave, advances, salary structure and payroll processing. Runs standalone or integrated with MPOS.',
+    description: 'MPOS HR and payroll software for employee records, attendance, shifts, leave, advances, salary structure and payroll. Runs standalone or with MPOS.',
     keywords: 'HR payroll software, employee management system, attendance software Nepal, payroll processing software, leave management system',
   },
 };

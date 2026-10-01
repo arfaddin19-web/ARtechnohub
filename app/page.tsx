@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'MPOS — Restaurant, Hotel, Spa & HR Management Software',
-  description: 'MPOS is business management software for restaurants, hotels, spas, salons, banquets and HR. Table orders, KOT, billing, inventory, reports and payroll in one connected platform.',
+  description: 'MPOS is business management software for restaurants, hotels, spas, salons, banquets and HR. Table orders, KOT, billing, inventory and payroll in one platform.',
   keywords: ['business management software Nepal', 'restaurant POS Nepal', 'hotel management software', 'spa salon software', 'banquet event software', 'HR payroll software', 'inventory management', 'billing software'],
   alternates: { canonical: '/' },
   openGraph: {

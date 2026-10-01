@@ -3,9 +3,9 @@ import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 
-const TITLE = 'About AR Technohub — Software & Hardware for Business | MPOS';
+const TITLE = 'About AR Technohub — Software & Hardware | MPOS';
 const DESC =
-  'AR Technohub builds MPOS business management software and supplies business hardware including PCs, thermal printers and thermal rolls. Learn about the company behind MPOS.';
+  'AR Technohub builds MPOS business management software and supplies business hardware including PCs and thermal printers. Learn about the company behind MPOS.';
 
 export const metadata: Metadata = {
   title: TITLE,
