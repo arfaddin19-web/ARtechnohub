@@ -1,12 +1,30 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'MPOS — Restaurant, Hotel, Spa & HR Management Software',
+  description: 'MPOS is business management software for restaurants, hotels, spas, salons, banquets and HR. Table orders, KOT, billing, inventory, reports and payroll in one connected platform.',
+  keywords: ['business management software Nepal', 'restaurant POS Nepal', 'hotel management software', 'spa salon software', 'banquet event software', 'HR payroll software', 'inventory management', 'billing software'],
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://artechnohub.com.np',
+    siteName: 'MPOS',
+    title: 'MPOS — Restaurant, Hotel, Spa & HR Management Software',
+    description: 'Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one platform.',
+    images: [{ url: 'https://artechnohub.com.np/og-image.png', width: 1200, height: 630, alt: 'MPOS business management software' }],
+  },
+  twitter: { card: 'summary_large_image', title: 'MPOS — Restaurant, Hotel, Spa & HR Management Software', description: 'Business management software for restaurants, hotels, spas, salons, banquets and HR.', images: ['https://artechnohub.com.np/og-image.png'] },
+};
 import Link from 'next/link';
 
 const products = [
-  { slug:'masterpos', name:'MasterPOS', tag:'Restaurant Management', desc:'A complete restaurant operating system for orders, tables, KOT, billing, inventory, purchasing, accounting and staff.', image:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85',shot:'/product/pos-order.webp', features:['Table & order management','KOT / kitchen workflow','Fast billing & payments','Inventory & purchasing','Reports & accounting','Staff & payroll integration'] },
-  { slug:'hotel', name:'MPOS Hotel', tag:'Hotel Management', desc:'Run your rooms, reservations, front office, billing and hotel operations from one connected platform.', image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85', features:['Reservations & room status','Check-in / check-out','Guest profiles & folios','Housekeeping workflow','POS & billing','Reports & payroll integration'] },
-  { slug:'spa', name:'MPOS Spa', tag:'Spa, Salon & Parlor', desc:'Manage appointments, walk-ins, therapists, rooms, services, packages, billing and customer history with ease.', image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=85', features:['Appointments & walk-ins','Therapist assignment','Room / bed management','Service & package sales','Customer history','Billing & payroll integration'] },
-  { slug:'banquet', name:'MPOS Banquet', tag:'Banquet & Events', desc:'Control event bookings, halls, packages, menus, billing and event operations without scattered spreadsheets.', image:'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85', features:['Event & hall bookings','Packages & menus','Guest & client details','Event billing','Inventory & purchasing','Reports & payroll integration'] },
-  { slug:'hr-payroll', name:'MPOS HR & Payroll', tag:'Standalone or Integrated', desc:'A flexible HR and payroll system that can run independently or plug directly into any MPOS business product.', image:'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85',shot:'/product/payroll-run.webp', features:['Employee management','Attendance & shifts','Leave management','Payroll processing','Advances & deductions','Salary & HR reports'] },
+  { slug:'masterpos', name:'MPOS Restaurant Management Software', tag:'Restaurant Management', desc:'A complete restaurant operating system for orders, tables, KOT, billing, inventory, purchasing, accounting and staff.', image:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85',shot:'/product/pos-order.webp', features:['Table & order management','KOT / kitchen workflow','Fast billing & payments','Inventory & purchasing','Reports & accounting','Staff & payroll integration'] },
+  { slug:'hotel', name:'MPOS Hotel Management Software', tag:'Hotel Management', desc:'Run your rooms, reservations, front office, billing and hotel operations from one connected platform.', image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85', features:['Reservations & room status','Check-in / check-out','Guest profiles & folios','Housekeeping workflow','POS & billing','Reports & payroll integration'] },
+  { slug:'spa', name:'MPOS Spa & Salon Management Software', tag:'Spa, Salon & Parlor', desc:'Manage appointments, walk-ins, therapists, rooms, services, packages, billing and customer history with ease.', image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=85', features:['Appointments & walk-ins','Therapist assignment','Room / bed management','Service & package sales','Customer history','Billing & payroll integration'] },
+  { slug:'banquet', name:'MPOS Banquet & Event Management Software', tag:'Banquet & Events', desc:'Control event bookings, halls, packages, menus, billing and event operations without scattered spreadsheets.', image:'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85', features:['Event & hall bookings','Packages & menus','Guest & client details','Event billing','Inventory & purchasing','Reports & payroll integration'] },
+  { slug:'hr-payroll', name:'MPOS HR & Payroll Software', tag:'Standalone or Integrated', desc:'A flexible HR and payroll system that can run independently or plug directly into any MPOS business product.', image:'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85',shot:'/product/payroll-run.webp', features:['Employee management','Attendance & shifts','Leave management','Payroll processing','Advances & deductions','Salary & HR reports'] },
 ];
 
 const industries = [

@@ -1,26 +1,137 @@
-'use client';
-import Link from 'next/link'; import {useState} from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import ContactForm from './ContactForm';
 
-const FORMSPREE='https://formspree.io/f/mnpnrgrl';
-const EMAIL='artechnohub23@gmail.com';
+const EMAIL = 'artechnohub23@gmail.com';
+const TITLE = 'Contact — Request an MPOS Demo';
+const DESC =
+  'Request a free MPOS demo for your restaurant, hotel, spa, salon, banquet or HR operation. Call or WhatsApp +977 9869093168 or email artechnohub23@gmail.com. We reply within one business day.';
 
-export default function Contact(){
-  const [sent,setSent]=useState(false);
-  const [busy,setBusy]=useState(false);
-  const [error,setError]=useState('');
+const FAQ = [
+  {
+    q: 'Is MPOS a cloud service?',
+    a: 'MPOS runs on a server in your own premises, so it works from your local network and does not depend on an internet connection for daily use.',
+  },
+  {
+    q: 'Do I need to buy hardware separately?',
+    a: 'You can run MPOS on existing desktops, laptops, tablets or phones on your network. We can advise on terminals, printers and receipt hardware if you need it.',
+  },
+  {
+    q: 'Can I start with only restaurant or only HR?',
+    a: 'Yes. MPOS HR & Payroll can run standalone, and business products can be deployed one at a time as your operation grows.',
+  },
+  {
+    q: 'How long does implementation take?',
+    a: 'It depends on your operation size and modules. After we understand your workflow, we give you a clear timeline with the demo.',
+  },
+];
 
-  async function submit(e){
-    e.preventDefault();
-    const form=e.currentTarget;
-    setBusy(true); setError('');
-    try{
-      const res=await fetch(FORMSPREE,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-      if(!res.ok) throw new Error(String(res.status));
-      form.reset();
-      setSent(true);
-    }catch{
-      setError('Sorry, your request did not go through. Please email us at '+EMAIL+' and we will help you right away.');
-    }finally{ setBusy(false); }
-  }
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  keywords: ['request MPOS demo', 'MPOS contact Nepal', 'restaurant software demo', 'business management software Nepal'],
+  alternates: { canonical: '/contact/' },
+  openGraph: {
+    type: 'website',
+    url: 'https://artechnohub.com.np/contact/',
+    title: TITLE,
+    description: DESC,
+    images: [{ url: 'https://artechnohub.com.np/og-image.png', width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESC, images: ['https://artechnohub.com.np/og-image.png'] },
+};
 
-  return <><header className="simple-header"><Link className="brand" href="/"><span className="brand-mark">M</span>MPOS</Link><Link href="/" className="back">← Home</Link></header><main><section className="contact-page"><div><div className="eyebrow">LET'S TALK</div><h1>Tell us about<br/><em>your business.</em></h1><p>Request a demo and our team can show you the MPOS workflow for your restaurant, hotel, spa, banquet or HR operation.</p><div className="contact-note"><b>What happens next?</b><span>01 — We learn about your operation</span><span>02 — We recommend the right MPOS product</span><span>03 — We arrange a personalized demo</span></div><p className="form-direct">Prefer to write directly? <a href={'mailto:'+EMAIL}>{EMAIL}</a><br/>Call or WhatsApp <a href="tel:+9779869093168">+977 9869093168</a></p></div><form action={FORMSPREE} method="POST" onSubmit={submit}>{sent?<div className="success"><span>✓</span><h2>Request received.</h2><p>Thank you. We have your details and will get back to you within one business day.</p><button className="gold-btn" type="button" onClick={()=>setSent(false)}>Send another</button></div>:<>{error&&<div className="form-error">{error}</div>}<input type="hidden" name="_subject" value="New MPOS demo request"/><label>Name<input required name="name" placeholder="Your name"/></label><label>Business name<input required name="business_name" placeholder="Business name"/></label><label>Business type<select required name="business_type" defaultValue=""><option value="" disabled>Select your business</option><option>Restaurant</option><option>Hotel</option><option>Spa / Salon / Parlor</option><option>Banquet / Events</option><option>HR / Payroll</option></select></label><label>Phone / WhatsApp<input required name="phone" placeholder="+977 ..."/></label><label>Email<input type="email" name="email" placeholder="you@example.com"/></label><label>Message<textarea name="message" rows={4} placeholder="Tell us what you would like to manage..."></textarea></label><button className="gold-btn" type="submit" disabled={busy}>{busy?'Sending...':'Request a Demo →'}</button></>}</form></section></main></>}
+const CONTACT_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: TITLE,
+  description: DESC,
+  url: 'https://artechnohub.com.np/contact/',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'MPOS',
+    url: 'https://artechnohub.com.np',
+    telephone: '+977-9869093168',
+    email: EMAIL,
+  },
+};
+
+const FAQ_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+export default function Contact() {
+  return (
+    <>
+      <script type="application/ld+json" suppressHydrationWarning>
+        {JSON.stringify(CONTACT_LD)}
+      </script>
+      <header className="simple-header">
+        <div className="simple-header-inner">
+          <Link className="brand" href="/">
+            <span className="brand-mark">M</span>MPOS
+          </Link>
+          <nav>
+            <Link href="/">Home</Link>
+            <Link href="/products">Products</Link>
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
+          <Link href="/" className="back">← Home</Link>
+        </div>
+      </header>
+      <main>
+        <section className="contact-page">
+          <div>
+            <div className="eyebrow">LET'S TALK</div>
+            <h1>
+              Tell us about<br />
+              <em>your business.</em>
+            </h1>
+            <p>
+              Request a demo and our team can show you the MPOS workflow for your
+              restaurant, hotel, spa, banquet or HR operation.
+            </p>
+            <div className="contact-note">
+              <b>What happens next?</b>
+              <span>01 — We learn about your operation</span>
+              <span>02 — We recommend the right MPOS product</span>
+              <span>03 — We arrange a personalized demo</span>
+            </div>
+            <p className="form-direct">
+              Prefer to write directly? <a href={'mailto:' + EMAIL}>{EMAIL}</a>
+              <br />
+              Call or WhatsApp <a href="tel:+9779869093168">+977 9869093168</a>
+            </p>
+          </div>
+          <ContactForm />
+        </section>
+
+        <section className="faq-section">
+          <div className="eyebrow">COMMON QUESTIONS</div>
+          <h2>
+            Questions before<br />
+            <em>you book a demo?</em>
+          </h2>
+          <div className="faq-grid">
+            {FAQ.map((f) => (
+              <div className="faq-item" key={f.q}>
+                <h3>{f.q}</h3>
+                <p>{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <script type="application/ld+json" suppressHydrationWarning>
+          {JSON.stringify(FAQ_LD)}
+        </script>
+      </main>
+    </>
+  );
+}

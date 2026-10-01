@@ -1,36 +1,51 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "MPOS — Technology for Better Business",
-  description: "Business management software for restaurants, hotels, spas, banquets and HR. All-in-one platform for operations.",
-  keywords: "POS system, restaurant management, hotel software, spa management, banquet software, HR payroll",
-  authors: [{ name: "MPOS" }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://artechnohub.com.np"),
+  title: {
+    default: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
+    // No %s template: every page sets its own absolute <title>, and a template
+    // would append "| MPOS" to pages that already end in it.
+    template: "%s",
+  },
+  description: "Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one connected platform.",
+  applicationName: "MPOS",
+  keywords: ["restaurant management software", "restaurant POS system Nepal", "hotel management software", "spa salon software", "banquet event management software", "HR payroll software", "inventory management software", "billing software", "KOT software"],
+  authors: [{ name: "MPOS", url: "https://artechnohub.com.np" }],
   creator: "MPOS",
   publisher: "MPOS",
-  robots: "index, follow",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://artechnohub.com.np"),
+  category: "business",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
+  formatDetection: { telephone: true, email: true, address: false },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://artechnohub.com.np",
     siteName: "MPOS",
-    title: "MPOS — Technology for Better Business",
-    description: "Complete business management software for restaurants, hotels, spas, banquets and HR operations.",
+    title: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
+    description: "Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one connected platform.",
     images: [
-      {
-        url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=90",
-        width: 1200,
-        height: 630,
-        alt: "MPOS Business Suite",
-      },
+      { url: "https://artechnohub.com.np/og-image.png", width: 1200, height: 630, alt: "MPOS business management software" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MPOS — Technology for Better Business",
-    description: "Complete business management software for restaurants, hotels, spas, banquets and HR operations.",
+    title: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
+    description: "Business management software for restaurants, hotels, spas, salons, banquets and HR.",
+    images: ["https://artechnohub.com.np/og-image.png"],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#c99635",
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}){
@@ -50,10 +65,14 @@ export default function RootLayout({children}:{children:React.ReactNode}){
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "MPOS",
-            description: "Business management software for restaurants, hotels, spas, banquets and HR",
+            alternateName: "MPOS Business Management Software",
+            description: "Business management software for restaurants, hotels, spas, salons, banquets and HR",
             url: "https://artechnohub.com.np",
             logo: "https://artechnohub.com.np/logo.png",
+            image: "https://artechnohub.com.np/og-image.png",
             sameAs: [],
+            areaServed: "Worldwide",
+            knowsAbout: ["Restaurant management", "Point of sale", "Hotel management", "Spa management", "Banquet management", "HR payroll", "Inventory management"],
             contactPoint: {
               "@type": "ContactPoint",
               telephone: "+977-9869093168",
