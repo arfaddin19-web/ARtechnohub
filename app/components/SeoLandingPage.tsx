@@ -8,6 +8,7 @@ export type SeoSection = { title: string; body: string; items: string[] };
 export default function SeoLandingPage({
   eyebrow, h1, intro, sections, links = [],
 }: { eyebrow: string; h1: string; intro: string; sections: SeoSection[]; links?: {href:string; label:string}[] }) {
+  const pageUrl = "https://artechnohub.com.np/";
   return (
     <>
       <Script id="seo-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "AR Technohub", item: "https://artechnohub.com.np/" }, { "@type": "ListItem", position: 2, name: h1, item: pageUrl }] }) }} />\n      <SiteHeader />
