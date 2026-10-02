@@ -6,6 +6,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/products/",
+    "/inventory-management-software/",
+    "/payroll-software-nepal/",
+    "/spa-salon-software/",
+    "/banquet-management-software/",
+    "/hotel-pos-software/",
+    "/hotel-management-software/",
     "/billing-software-nepal/",
     "/pos-software-nepal/",
     "/restaurant-pos-software/",
