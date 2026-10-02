@@ -4,12 +4,12 @@ import type { Metadata, Viewport } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://artechnohub.com.np"),
   title: {
-    default: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
+    default: "MPOS – Billing & POS Software in Nepal | AR Technohub",
     // No %s template: every page sets its own absolute <title>, and a template
     // would append "| MPOS" to pages that already end in it.
     template: "%s",
   },
-  description: "Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one connected platform.",
+  description: "MPOS by AR Technohub is billing and POS software in Nepal for restaurants, hotels, banquets, spas, salons and growing businesses. Manage billing, orders, KOT, inventory, reports and payroll in one connected system.",
   applicationName: "MPOS",
   keywords: ["AR Technohub", "business management software Nepal", "restaurant management software", "restaurant POS system Nepal", "hotel management software", "spa salon software", "banquet event management software", "HR payroll software", "inventory management software", "billing software", "KOT software", "thermal printer supplier Nepal", "thermal rolls Nepal"],
   authors: [{ name: "AR Technohub", url: "https://artechnohub.com.np" }],
@@ -27,17 +27,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://artechnohub.com.np",
-    siteName: "MPOS",
-    title: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
-    description: "Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one connected platform.",
+    siteName: "AR Technohub",
+    title: "MPOS – Billing & POS Software in Nepal | AR Technohub",
+    description: "Billing, POS and business management software for restaurants, hotels, banquets, spas, salons and growing businesses in Nepal.",
     images: [
       { url: "https://artechnohub.com.np/og-image.png", width: 1200, height: 630, alt: "MPOS business management software" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
-    description: "Business management software for restaurants, hotels, spas, salons, banquets and HR.",
+    title: "MPOS – Billing & POS Software in Nepal | AR Technohub",
+    description: "Billing, POS and business management software for restaurants, hotels, banquets, spas, salons and growing businesses in Nepal.",
     images: ["https://artechnohub.com.np/og-image.png"],
   },
 };
@@ -96,6 +96,17 @@ export default function RootLayout({children}:{children:React.ReactNode}){
               contactType: "Customer Service",
               availableLanguage: ["en", "ne"],
             },
+          })}
+        </script>
+        <script type="application/ld+json" suppressHydrationWarning>
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "AR Technohub",
+            alternateName: "AR Technohub Nepal",
+            url: "https://artechnohub.com.np/",
+            description: "AR Technohub develops MPOS billing, POS and business management software for businesses in Nepal.",
+            publisher: { "@type": "Organization", name: "AR Technohub", url: "https://artechnohub.com.np/" },
           })}
         </script>
         <script type="application/ld+json" suppressHydrationWarning>
