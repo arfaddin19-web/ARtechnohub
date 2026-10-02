@@ -3,8 +3,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 
 export const metadata: Metadata = {
   title: "Spa & Salon Management Software in Nepal | MPOS",
-  description: "MPOS helps spas and salons manage appointments,
-  alternates: { canonical: "https://artechnohub.com.np/spa-salon-software/" },
+  description: "MPOS helps spas and salons manage appointments, services, customers, staff, billing, packages and inventory in one connected system.",
 };
 
 export default function Page() {
