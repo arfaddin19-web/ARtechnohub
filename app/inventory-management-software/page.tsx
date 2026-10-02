@@ -3,8 +3,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 
 export const metadata: Metadata = {
   title: "Inventory Management Software in Nepal | MPOS",
-  description: "MPOS inventory connects purchasing,
-  alternates: { canonical: "https://artechnohub.com.np/inventory-management-software/" },
+  description: "MPOS inventory connects purchasing, stock, transfers, consumption and reporting with billing and business operations.",
 };
 
 export default function Page() {
