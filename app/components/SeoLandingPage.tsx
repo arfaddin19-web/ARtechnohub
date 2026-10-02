@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 
@@ -9,7 +10,7 @@ export default function SeoLandingPage({
 }: { eyebrow: string; h1: string; intro: string; sections: SeoSection[]; links?: {href:string; label:string}[] }) {
   return (
     <>
-      <SiteHeader />
+      <Script id="seo-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "AR Technohub", item: "https://artechnohub.com.np/" }, { "@type": "ListItem", position: 2, name: h1, item: pageUrl }] }) }} />\n      <SiteHeader />
       <main>
         <section className="product-hero">
           <span className="tag">{eyebrow}</span>
