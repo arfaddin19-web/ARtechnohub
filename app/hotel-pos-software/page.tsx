@@ -3,8 +3,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 
 export const metadata: Metadata = {
   title: "Hotel POS Software in Nepal | MPOS",
-  description: "MPOS provides POS and billing workflows for hotels,
-  alternates: { canonical: "https://artechnohub.com.np/hotel-pos-software/" },
+  description: "MPOS provides POS and billing workflows for hotels, connecting restaurant sales, guest-related charges, payments, inventory and reporting.",
 };
 
 export default function Page() {
