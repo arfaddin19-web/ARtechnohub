@@ -82,13 +82,6 @@ export default function RootLayout({children}:{children:React.ReactNode}){
             },
             areaServed: ["Nepal", "Worldwide"],
             knowsAbout: ["Business management software", "Restaurant management", "Point of sale", "Hotel management", "Spa management", "Banquet management", "HR payroll", "Inventory management", "Business computers", "Thermal printers", "Thermal paper rolls", "POS peripherals"],
-            makesOffer: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "MPOS business management software" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "PCs and POS terminals" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Thermal receipt printers" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Thermal paper rolls" } },
-              { "@type": "Offer", itemOffered: { "@type": "Product", name: "POS peripherals" } },
-            ],
             contactPoint: {
               "@type": "ContactPoint",
               telephone: "+977-9869093168",
