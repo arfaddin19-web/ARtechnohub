@@ -8,9 +8,16 @@ export const metadata: Metadata = {
 
 const sections = [{"title":"Tables & orders","body":"Manage restaurant tables and orders from a workflow designed for busy service.","items":["Table status and floor management","Waiter order punching","Merge and transfer tables","Split bills by items or guests"]},{"title":"Kitchen & bar workflow","body":"Send the right order information to the appropriate ready location.","items":["KOT for kitchen","BOT for bar","Order routing","Print status and reprint controls"]},{"title":"Billing & management","body":"Finish the service cycle with connected billing and management information.","items":["Fast restaurant billing","Multiple payment methods","Inventory connection","Sales and operational reports"]}];
 
+const faqs = [
+  ['What is restaurant POS software?', 'Restaurant POS software connects ordering, tables, kitchen tickets, billing, payments and reporting in one workflow.'],
+  ['Can MPOS handle KOT and BOT?', 'Yes. MPOS supports KOT kitchen workflows and BOT bar workflows, with orders routed to the appropriate ready location.'],
+  ['Can bills be split by items?', 'MPOS can support item-based bill splitting, which is useful when multiple guests at one table need separate bills.'],
+  ['Can restaurant POS connect with inventory?', 'Yes. MPOS is designed to connect restaurant sales with inventory and related operational records.'],
+];
+
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
+    <><SiteHeader /><main className="mx-auto max-w-6xl px-6 py-16">
       <header className="max-w-4xl">
         <p className="mb-4 text-sm font-semibold uppercase tracking-widest">MPOS • AR Technohub</p>
         <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">Restaurant POS & Management Software</h1>
