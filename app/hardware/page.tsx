@@ -33,18 +33,6 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: TITLE, description: DESC, images: ['https://artechnohub.com.np/og-image.png'] },
 };
 
-const hardwareLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Business hardware supplied by AR Technohub',
-  itemListElement: HARDWARE.map((h, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: h.name,
-    url: `https://artechnohub.com.np/hardware/${h.slug}/`,
-  })),
-};
-
 const FAQ = [
   {
     q: 'Can I buy hardware without MPOS software?',
@@ -77,7 +65,6 @@ const faqLd = {
 export default function HardwarePage() {
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning>{JSON.stringify(hardwareLd)}</script>
       <SiteHeader />
       <main>
         <section className="product-hero">
