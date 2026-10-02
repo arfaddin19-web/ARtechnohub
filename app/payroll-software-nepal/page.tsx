@@ -3,8 +3,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 
 export const metadata: Metadata = {
   title: "Payroll Software in Nepal | MPOS",
-  description: "MPOS payroll helps businesses manage employee attendance,
-  alternates: { canonical: "https://artechnohub.com.np/payroll-software-nepal/" },
+  description: "MPOS payroll helps businesses manage employee attendance, leave, salary components, deductions, advances, payslips and payroll reporting.",
 };
 
 export default function Page() {
