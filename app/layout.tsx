@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     url: "https://artechnohub.com.np",
     siteName: "AR Technohub",
     title: "MPOS – Billing & POS Software in Nepal | AR Technohub",
-    description: "Business management software for restaurants, hotels, spas, salons, banquets and HR. Orders, KOT, billing, inventory, reports and payroll in one connected platform.",
+    description: "Billing, POS and business management software for restaurants, hotels, banquets, spas, salons and growing businesses in Nepal.",
     images: [
       { url: "https://artechnohub.com.np/og-image.png", width: 1200, height: 630, alt: "MPOS business management software" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MPOS — Restaurant, Hotel, Spa & HR Management Software",
+    title: "MPOS – Billing & POS Software in Nepal | AR Technohub",
     description: "Billing, POS and business management software for restaurants, hotels, banquets, spas, salons and growing businesses in Nepal.",
     images: ["https://artechnohub.com.np/og-image.png"],
   },
