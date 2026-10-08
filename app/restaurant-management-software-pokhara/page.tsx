@@ -108,7 +108,7 @@ const LOCAL_LD = {
     postalCode: '33700',
     addressCountry: 'NP',
   },
-  areaServed: ['Pokhara', 'Gandaki Province', 'Nepal'],
+  areaServed: ['Pokhara', 'Syangja', 'Waling', 'Galyang', 'Dulegauda', 'Bhimad', 'Damauli', 'Besisahar', 'Baglung', 'Kushma', 'Gandaki Province', 'Nepal'],
   knowsAbout: ['Restaurant management software', 'Restaurant POS', 'KOT software', 'Restaurant billing', 'Inventory management'],
 };
 
@@ -428,6 +428,9 @@ export default function RestaurantSoftwarePokhara() {
               Mahendrapul, New Road, Chipledhunga, Prithvi Chowk, Srijana Chowk and other areas of
               Pokhara and Gandaki Province.
             </p>
+            <div className="actions">
+              <Link className="outline-btn" href="/restaurant-software-gandaki/">Software for nearby cities across Gandaki &rarr;</Link>
+            </div>
           </div>
         </section>
 

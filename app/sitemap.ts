@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pos-software-nepal/",
     "/restaurant-pos-software/",
     "/restaurant-management-software-pokhara/",
+    "/restaurant-software-gandaki/",
     "/products/masterpos/",
     "/products/hotel/",
     "/products/spa/",

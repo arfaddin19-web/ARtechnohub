@@ -3,6 +3,7 @@ import Link from 'next/link';
 const PRODUCTS = [
   ['/products/masterpos/', 'MPOS Restaurant'],
   ['/restaurant-management-software-pokhara/', 'Restaurant Software Pokhara'],
+  ['/restaurant-software-gandaki/', 'Restaurant Software Gandaki'],
   ['/products/hotel/', 'MPOS Hotel'],
   ['/products/spa/', 'MPOS Spa & Salon'],
   ['/products/banquet/', 'MPOS Banquet'],
