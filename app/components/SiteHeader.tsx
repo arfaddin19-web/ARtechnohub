@@ -8,6 +8,7 @@ const LINKS = [
   { href: '/hardware', label: 'Hardware' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -59,6 +60,7 @@ export default function SiteHeader() {
           <Link href="/hardware">Hardware</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/about">About</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/contact">Contact</Link>
         </nav>
         <Link className="gold-btn" href="/contact">

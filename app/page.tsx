@@ -9,7 +9,7 @@ const HOME_DESC =
 export const metadata: Metadata = {
 title: HOME_TITLE,
   description: HOME_DESC,
-  keywords: ['restaurant management software Pokhara', 'restaurant POS software Pokhara', 'restaurant billing software Pokhara', 'restaurant management software Nepal', 'business management software Nepal', 'restaurant POS Nepal', 'hotel management software', 'spa salon software', 'banquet event software', 'HR payroll software', 'inventory management', 'billing software'],
+  keywords: ['restaurant management software Pokhara', 'restaurant POS software Pokhara', 'restaurant billing software Pokhara', 'restaurant management software Nepal', 'business management software Nepal', 'restaurant POS Nepal', 'hotel management software', 'spa salon software', 'banquet event software', 'HR payroll software', 'inventory management', 'billing software', 'restaurant software nepal', 'pos software nepal', 'billing software nepal', 'hotel software nepal', 'restaurant ko software', 'रेस्टुरेन्ट सफ्टवेयर', 'बिलिङ सफ्टवेयर', 'रेस्टुरेन्ट व्यवस्थापन सफ्टवेयर'],
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -24,6 +24,7 @@ title: HOME_TITLE,
 };
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
+import Testimonials from './components/Testimonials';
 import { HARDWARE as hardware } from './hardware/data';
 
 const products = [
@@ -55,6 +56,7 @@ export default function Home(){
    <section id="hardware-software" className="about-band"><div className="about-band-copy"><div className="eyebrow">FROM AR TECHNOHUB</div><h2>Software we build.<br/><em>Hardware we supply.</em></h2><p>MPOS is the software brand of AR Technohub. Alongside it we supply the equipment your operation runs on &mdash; PCs and POS terminals, thermal printers, thermal rolls and the accessories a billing counter needs.</p><p className="about-band-note">Buying software and hardware from the same company means they are specified together, installed together, and supported by one team.</p><div className="actions"><Link className="gold-btn" href="/hardware">See Hardware <span>&rarr;</span></Link><Link className="outline-btn" href="/about">About AR Technohub</Link></div></div><div className="hw-grid">{hardware.map(h=><Link className="hw-tile" href={`/hardware/${h.slug}/`} key={h.slug}><span>{h.kicker}</span><h3>{h.name}</h3><p>{h.short}</p><b>Explore &rarr;</b></Link>)}</div></section>
 
    <section className="section" aria-label="Software solutions"><div className="section-head"><div><div className="eyebrow">SOFTWARE SOLUTIONS</div><h2>Find the right <em>software.</em></h2></div></div><div className="actions"><Link className="outline-btn" href="/billing-software-nepal/">Billing Software</Link><Link className="outline-btn" href="/pos-software-nepal/">POS Software</Link><Link className="outline-btn" href="/restaurant-pos-software/">Restaurant POS</Link><Link className="outline-btn" href="/restaurant-management-software-pokhara/">Restaurant Software Pokhara</Link><Link className="outline-btn" href="/hotel-management-software/">Hotel Management</Link><Link className="outline-btn" href="/banquet-management-software/">Banquet Software</Link><Link className="outline-btn" href="/spa-salon-software/">Spa & Salon</Link><Link className="outline-btn" href="/payroll-software-nepal/">Payroll</Link><Link className="outline-btn" href="/inventory-management-software/">Inventory</Link></div></section>
+   <Testimonials heading="Businesses that run on MPOS" />
    <section className="cta"><div><div className="eyebrow light">READY WHEN YOU ARE</div><h2>Let's build a better<br/><em>way to run your business.</em></h2></div><div><p>Tell us what you operate and we'll show you the MPOS workflow that fits.</p><Link href="/contact" className="gold-btn">Request a Demo →</Link></div></section>
   </main>
 <SiteFooter/>

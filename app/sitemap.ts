@@ -1,11 +1,14 @@
 export const dynamic = "force-static";
 
 import type { MetadataRoute } from "next";
+import { POSTS } from "./blog/posts";
 
 const BASE_URL = "https://artechnohub.com.np";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
+    "/blog/",
+    ...POSTS.map((post) => "/blog/" + post.slug + "/"),
     "",
     "/products/",
     "/inventory-management-software/",

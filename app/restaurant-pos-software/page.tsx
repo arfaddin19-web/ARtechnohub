@@ -4,6 +4,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 export const metadata: Metadata = {
   title: "Restaurant POS Software in Nepal | MPOS",
   description: "MPOS is restaurant POS software for Nepal, connecting table management, waiter orders, KOT, BOT, billing, inventory and reporting in one system.",
+  keywords: ["restaurant pos software nepal", "restaurant pos nepal", "restaurant software nepal", "restaurant ko software", "restaurant billing software nepal", "रेस्टुरेन्ट पोस सफ्टवेयर"],
   alternates: { canonical: "https://artechnohub.com.np/restaurant-pos-software/" },
 };
 

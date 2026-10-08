@@ -52,6 +52,7 @@ export default function SiteFooter() {
           </address>
           <Link href="/about/">About us</Link>
           <Link href="/pricing">Pricing</Link>
+          <Link href="/blog/">Blog &amp; Guides</Link>
           <Link href="/contact">Contact</Link>
           <a href="mailto:artechnohub23@gmail.com">artechnohub23@gmail.com</a>
           <a href="tel:+9779869093168">+977 9869093168</a>

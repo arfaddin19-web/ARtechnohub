@@ -4,6 +4,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 export const metadata: Metadata = {
   title: "POS Software in Nepal | Point of Sale System | MPOS",
   description: "MPOS is point-of-sale and business management software from AR Technohub for restaurants, hotels, banquets, spas, salons and growing businesses in Nepal.",
+  keywords: ["pos software nepal", "point of sale software nepal", "pos system nepal", "billing pos nepal", "restaurant pos nepal", "पीओएस सफ्टवेयर"],
   alternates: { canonical: "https://artechnohub.com.np/pos-software-nepal/" },
 };
 

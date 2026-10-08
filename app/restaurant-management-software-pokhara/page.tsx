@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import Testimonials from '../components/Testimonials';
 
 const PATH = '/restaurant-management-software-pokhara/';
 const TITLE = 'Restaurant Management Software in Pokhara, Nepal | AR Technohub';
@@ -22,6 +23,14 @@ export const metadata: Metadata = {
     'KOT software Pokhara',
     'restaurant management software Nepal',
     'restaurant POS software Nepal',
+    'restaurant software nepal',
+    'pos software nepal',
+    'billing software nepal',
+    'restaurant ko software',
+    'hotel management software nepal',
+    'रेस्टुरेन्ट सफ्टवेयर',
+    'रेस्टुरेन्ट व्यवस्थापन सफ्टवेयर',
+    'बिलिङ सफ्टवेयर',
   ],
   alternates: { canonical: PATH },
   openGraph: {
@@ -229,6 +238,11 @@ export default function RestaurantSoftwarePokhara() {
             <p>
               Looking for restaurant management software in Pokhara? Talk to AR Technohub and see how
               MPOS can fit your restaurant.
+            </p>
+            <p>
+              Whether you run a restaurant in Lakeside, a café in New Road or a food business near
+              Mahendrapul, if you are looking for the best restaurant software in Pokhara, Nepal, MPOS
+              is designed for the way Nepali restaurants operate every day.
             </p>
             <div className="actions">
               <Link className="gold-btn" href="/contact">Request a Demo <span>&rarr;</span></Link>
@@ -477,6 +491,8 @@ export default function RestaurantSoftwarePokhara() {
             cap="Business dashboard"
           />
         </section>
+
+        <Testimonials heading="Restaurants and businesses that run on MPOS" />
 
         <section className="faq-section">
           <div className="eyebrow">FREQUENTLY ASKED QUESTIONS</div>

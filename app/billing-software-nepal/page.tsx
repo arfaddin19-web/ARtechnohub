@@ -4,6 +4,7 @@ import SeoLandingPage from "../components/SeoLandingPage";
 export const metadata: Metadata = {
   title: "Billing Software in Nepal | MPOS Billing System",
   description: "MPOS by AR Technohub provides practical billing software for businesses in Nepal, connecting invoicing, payments, sales records and operational reporting in one system.",
+  keywords: ["billing software nepal", "bill software nepal", "billing software", "invoice software nepal", "hisab software nepal", "बिलिङ सफ्टवेयर"],
   alternates: { canonical: "https://artechnohub.com.np/billing-software-nepal/" },
 };
 
