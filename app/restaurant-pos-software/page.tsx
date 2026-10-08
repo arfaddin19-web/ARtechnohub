@@ -15,6 +15,9 @@ const sections = [
 ];
 
 const links = [
+  { href: "/restaurant-management-software-pokhara/", label: "Restaurant Software in Pokhara" },
+  { href: "/restaurant-software-gandaki/", label: "Restaurant Software in Gandaki" },
+  { href: "/products/masterpos/", label: "MPOS Product Details" },
   { href: "/pos-software-nepal/", label: "POS Software" },
   { href: "/billing-software-nepal/", label: "Billing Software" },
 ];
