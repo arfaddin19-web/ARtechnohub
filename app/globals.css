@@ -131,3 +131,14 @@ figure{margin:0}.shot-win{background:#fff;border:1px solid #ddd4c2;border-radius
 .nav-panel-foot{font-size:11px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:18px}
 .nav-panel-foot a{color:var(--gold);font-weight:700}
 @media(max-width:900px){.nav-toggle{display:grid}.nav-panel{display:flex}}
+
+/* Pokhara restaurant landing page + homepage restaurant-first H1 ---------- */
+.hero-copy h1{font-size:clamp(40px,4.8vw,66px)}
+.intro-body .module-list{margin-top:26px}
+.showcase-copy .module-list{margin-top:26px}
+.module-list li.plain::before{content:none}
+.about-band h2 a{transition:.15s}
+.about-band h2 a:hover{color:var(--gold)}
+.about-band-shot{min-width:0}
+.cta .cta-contact{max-width:none;font-size:11px;margin-top:16px}
+.cta .cta-contact a{color:var(--gold);font-weight:600}

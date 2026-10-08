@@ -122,6 +122,21 @@ export default async function ProductDetail({params}:{params:Promise<{slug:strin
           { "@type": "ListItem", position: 3, name: p.name, item: "https://artechnohub.com.np/products/" + slug },
         ],
       })}</script>
+      {slug==='masterpos' && (
+        <section className="hw-cross">
+          <div>
+            <div className="eyebrow">FOR RESTAURANTS IN POKHARA</div>
+            <h2>Restaurant Management Software in Pokhara</h2>
+          </div>
+          <div>
+            <p>Looking for restaurant management software in Pokhara? AR Technohub is based in Pokhara and works with restaurants across Lakeside, Mahendrapul, New Road, Chipledhunga, Prithvi Chowk and greater Gandaki Province.</p>
+            <div className="actions">
+              <Link className="gold-btn" href="/restaurant-management-software-pokhara/">Read the Pokhara guide <span>&rarr;</span></Link>
+              <Link className="outline-btn" href="/contact">Request a Demo</Link>
+            </div>
+          </div>
+        </section>
+      )}
       <section className="feature-section"><div className="eyebrow">WHAT YOU GET</div><h2>Everything your team<br/><em>needs to work better.</em></h2><div className="detail-grid">{p.features.map((f:string[],i:number)=><article key={i}><span>{f[0]}</span><h3>{f[1]}</h3><p>{f[2]}</p></article>)}</div></section>
       <section className="workflow"><div><div className="eyebrow light">HOW IT WORKS</div><h2>Designed around<br/><em>your daily workflow.</em></h2><p>MPOS connects each step so your staff spend less time moving between screens and more time serving customers.</p></div><div className="steps">{p.steps.map((s:string[],i:number)=><div key={i}><b>{s[0]}</b><strong>{s[1]}</strong><p>{s[2]}</p></div>)}</div></section>
       {p.shots
