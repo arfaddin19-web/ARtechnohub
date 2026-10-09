@@ -14,23 +14,52 @@ export default function ContactForm() {
     const form = e.currentTarget;
     setBusy(true);
     setError('');
+    let failure = '';
     try {
       const res = await fetch(FORMSPREE, {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' },
       });
-      if (!res.ok) throw new Error(String(res.status));
-      form.reset();
-      setSent(true);
+      if (res.ok) {
+        form.reset();
+        setSent(true);
+        return;
+      }
+      try {
+        const data = await res.json();
+        if (Array.isArray(data?.errors) && data.errors.length) {
+          failure = data.errors
+            .map((x) => (x.field ? `${x.field}: ${x.message}` : x.message))
+            .join(', ');
+        } else if (data?.error) {
+          failure = data.error;
+        }
+      } catch {}
+      if (!failure) failure = `server responded ${res.status}`;
     } catch {
+      failure = 'network';
+    } finally {
+      setBusy(false);
+    }
+    if (/email/i.test(failure)) {
       setError(
-        'Sorry, your request did not go through. Please email us at ' +
+        'Please enter a valid email address (or leave the email field blank) and try again.'
+      );
+    } else if (failure === 'network') {
+      setError(
+        'Sorry, we could not reach our form service. Please email us at ' +
           EMAIL +
           ' and we will help you right away.'
       );
-    } finally {
-      setBusy(false);
+    } else {
+      setError(
+        'Sorry, your request did not go through (' +
+          failure +
+          '). Please email us at ' +
+          EMAIL +
+          '.'
+      );
     }
   }
 
