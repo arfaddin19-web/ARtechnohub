@@ -76,7 +76,7 @@ export default function BlogIndex() {
             <Link href="/contact" className="gold-btn">Request a Demo &rarr;</Link>
             <p className="cta-contact">
               Indramarga-10, Pokhara 33700 &middot; <a href="tel:+9779869093168">+977 9869093168</a> &middot;{' '}
-              <a href="mailto:artechnohub23@gmail.com">artechnohub23@gmail.com</a>
+              <a href="mailto:sales@artechnohub.com.np">sales@artechnohub.com.np</a>
             </p>
           </div>
         </section>

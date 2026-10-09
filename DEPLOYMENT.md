@@ -103,7 +103,7 @@ not be fetched, `429` rate limited.
 
 Single source of truth for the published contact info:
 
-- Email `artechnohub23@gmail.com` — footer (`app/page.tsx`), contact page fallback link, JSON-LD `contactPoint` (`app/layout.tsx`)
+- Email `sales@artechnohub.com.np` — footer (`app/page.tsx`), contact page fallback link, JSON-LD `contactPoint` (`app/layout.tsx`)
 - Phone/WhatsApp `+977 9869093168` — `tel:+9779869093168` in the footer and contact page
 - Demo form → Formspree form `mnpnrgrl` (`app/contact/page.tsx`, `FORMSPREE` constant)
 

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 const FORMSPREE = 'https://formspree.io/f/mnpnrgrl';
-const EMAIL = 'artechnohub23@gmail.com';
+const EMAIL = 'sales@artechnohub.com.np';
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);

@@ -139,7 +139,7 @@ const AREA_LD = {
   url: 'https://artechnohub.com.np' + PATH,
   image: 'https://artechnohub.com.np/logo.png',
   telephone: '+977-9869093168',
-  email: 'artechnohub23@gmail.com',
+  email: 'sales@artechnohub.com.np',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Indramarga-10',
@@ -363,7 +363,7 @@ export default function RestaurantSoftwareGandaki() {
             <p className="cta-contact">
               Indramarga-10, Pokhara, Gandaki Province, Nepal &middot;{' '}
               <a href="tel:+9779869093168">+977 9869093168</a> &middot;{' '}
-              <a href="mailto:artechnohub23@gmail.com">artechnohub23@gmail.com</a>
+              <a href="mailto:sales@artechnohub.com.np">sales@artechnohub.com.np</a>
             </p>
           </div>
         </section>
