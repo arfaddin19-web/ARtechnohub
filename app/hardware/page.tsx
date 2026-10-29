@@ -81,7 +81,7 @@ export default function HardwarePage() {
           </p>
           <div className="actions">
             <Link className="gold-btn" href="/contact">Request a Quote <span>→</span></Link>
-            <Link className="outline-btn" href="/#hardware-software">Software + hardware together</Link>
+            <Link className="outline-btn" href="/mpos/#hardware-software">Software + hardware together</Link>
           </div>
         </section>
 

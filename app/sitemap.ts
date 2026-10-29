@@ -10,7 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/",
     ...POSTS.map((post) => "/blog/" + post.slug + "/"),
     "",
+    "/mpos/",
     "/products/",
+    "/products/noor/",
     "/inventory-management-software/",
     "/payroll-software-nepal/",
     "/spa-salon-software/",
@@ -39,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: BASE_URL + route,
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route.startsWith("/products/") ? 0.9 : 0.7,
+    changeFrequency: route === "" || route === "/mpos/" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : route === "/mpos/" ? 0.95 : route.startsWith("/products/") ? 0.9 : 0.7,
   }));
 }

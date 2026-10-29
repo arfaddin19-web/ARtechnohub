@@ -97,7 +97,7 @@ const LOCAL_LD = {
   alternateName: 'MPOS',
   description: 'Pokhara-based software company providing MPOS restaurant management software, POS billing, KOT, inventory and reporting for restaurants in Pokhara and Nepal.',
   url: 'https://artechnohub.com.np',
-  image: 'https://artechnohub.com.np/logo.png',
+  image: 'https://artechnohub.com.np/logo-ar-square.png',
   telephone: '+977-9869093168',
   email: 'sales@artechnohub.com.np',
   address: {

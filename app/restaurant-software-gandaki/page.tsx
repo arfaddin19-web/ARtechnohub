@@ -137,7 +137,7 @@ const AREA_LD = {
   description:
     'Pokhara-based provider of MPOS restaurant, POS and billing software, serving businesses across Gandaki Province, Nepal.',
   url: 'https://artechnohub.com.np' + PATH,
-  image: 'https://artechnohub.com.np/logo.png',
+  image: 'https://artechnohub.com.np/logo-ar-square.png',
   telephone: '+977-9869093168',
   email: 'sales@artechnohub.com.np',
   address: {

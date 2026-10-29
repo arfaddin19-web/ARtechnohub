@@ -63,7 +63,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     image: 'https://artechnohub.com.np/og-image.png',
     articleSection: post.tag,
     author: { '@type': 'Organization', name: 'AR Technohub', url: 'https://artechnohub.com.np' },
-    publisher: { '@type': 'Organization', name: 'AR Technohub', url: 'https://artechnohub.com.np', logo: { '@type': 'ImageObject', url: 'https://artechnohub.com.np/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'AR Technohub', url: 'https://artechnohub.com.np', logo: { '@type': 'ImageObject', url: 'https://artechnohub.com.np/logo-ar-square.png' } },
   };
   const crumbLd = {
     '@context': 'https://schema.org',
